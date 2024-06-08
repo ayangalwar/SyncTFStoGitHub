@@ -20,7 +20,7 @@ Write-Host "github Dir : $githubDir"
 $destination = $githubDir+"\"+ $AzureRepoName+".git"
 Write-Host "destination: $destination"
 #Please make sure, you remove https from azure-repo-clone-url
-$sourceURL = "https://$($ADOSourcePAT)"+"@"+"$($ADOCloneURL)"
+$sourceURL = "https://$($SOURCEPAT)"+"@"+"$($ADOCloneURL)"
 write-host "source URL : $sourceURL"
 #Please make sure, you remove https from github-repo-clone-url
 $destURL = "https://" + $($DESTINATIONPAT) +"@"+"$($GitHubCloneURL)"
