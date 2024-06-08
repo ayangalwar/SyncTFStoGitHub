@@ -5,15 +5,9 @@ on:
   
 jobs:
   build:
-    runs-on: windows-2019
+    runs-on: windows-2010
     steps:
       - name: Check out repo        
         uses: actions/checkout@v2
       - run: |
-           $ListObject = GC -Path "$($env:GITHUB_WORKSPACE)\ADORepoList.json" | ConvertFrom-Json
-           foreach ($object in $ListObject.RepoList){
-            write-host "--------------- Current syncing for repo $($object.AzureRepoName)----------------------------------"
-            Set-Location $($env:GITHUB_WORKSPACE)
-             .\SyncTFStoGitHub.ps1 -GitHubDestinationPAT ${{ secrets.GITHUBDESTINATIONPAT }} -ADOSourcePAT ${{ secrets.ADOSOURCEPAT }} -AzureRepoName $($object.AzureRepoName)  -ADOCloneURL $($object.ADOCloneURL)  -GitHubCloneURL  $($object.GitHubCloneURL)
-            write-host "---------------------------------------------------------------------------------------------------"
-           }
+             ./SyncTFStoGitHub.ps1 -DESTINATIONPAT ${{ secrets.DESTINATIONPAT }} -SOURCEPAT ${{ secrets.SOURCEPAT }} 
