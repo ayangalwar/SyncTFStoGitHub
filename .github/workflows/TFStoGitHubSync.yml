@@ -7,6 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repo        
+      - name: Check out repo   
+         uses: actions/checkout@v2
       - run: |
              ./SyncTFStoGitHub.ps1 -DESTINATIONPAT ${{ secrets.DESTINATIONPAT }} -SOURCEPAT ${{ secrets.SOURCEPAT }} 
