@@ -8,6 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo        
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+#       - name: Check out FromTFS 
+        env: 
+           DESTINATIONPAT: ${{ secrets.DESTINATIONPAT }}
+           SOURCEPAT: ${{ secrets.SOURCEPAT }}
       - run: |
-           ./SyncTFStoGitHub.ps1 -DESTINATIONPAT ${{ secrets.DESTINATIONPAT }} -SOURCEPAT ${{ secrets.SOURCEPAT }} 
+         chmod 777 ./SynADOtoGitHub.ps1 
+         ./SynADOtoGitHub.ps1 -$DESTINATIONPAT -$SOURCEPAT 
