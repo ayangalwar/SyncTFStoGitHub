@@ -14,5 +14,5 @@ jobs:
            DESTINATIONPAT: ${{ secrets.DESTINATIONPAT }}
            SOURCEPAT: ${{ secrets.SOURCEPAT }}
       - run: |
-         chmod 777 ./SynADOtoGitHub.ps1 
-         ./SynADOtoGitHub.ps1 -$DESTINATIONPAT -$SOURCEPAT 
+         chmod 777 ./SyncTFStoGitHub.ps1 
+         ./SyncTFStoGitHub.ps1 -$DESTINATIONPAT -$SOURCEPAT 
