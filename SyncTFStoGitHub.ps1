@@ -10,7 +10,7 @@ param(
 Write-Host ' - - - - - - - - - - - - - - - - - - - - - - - - -'
 Write-Host ' reflect Azure Devops repo changes to GitHub repo'
 Write-Host ' - - - - - - - - - - - - - - - - - - - - - - - - - '
-$AzureRepoName = "Current"
+$AzureRepoName = "ProjectFromGit"
 $ADOCloneURL = "dev.azure.com/yangalwar/ProjectFromGit/_git/ProjectFromGit"
 $GitHubCloneURL = "github.dxc.com/GLOBAL-XLPro/current.git"
 $stageDir = pwd | Split-Path
