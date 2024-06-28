@@ -5,14 +5,19 @@ on:
   
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-2019
     steps:
       - name: Check out repo        
         uses: actions/checkout@v3
-#       - name: Check out FromTFS 
+        
+        
+#       - name: Check out FromTFS
+#         uses: actions/setup-powershell@v2
+      - name: run powershell script 
+        shell: pwsh
         env: 
            DESTINATIONPAT: ${{ secrets.DESTINATIONPAT }}
            SOURCEPAT: ${{ secrets.SOURCEPAT }}
-      - run: |
+        run: |
          chmod 777 ./SyncTFStoGitHub.ps1 
-         ./SyncTFStoGitHub.ps1 -$DESTINATIONPAT -$SOURCEPAT 
+         pwsh ./SyncTFStoGitHub.ps1 -$DESTINATIONPAT -$SOURCEPAT 
