@@ -17,7 +17,7 @@ $stageDir = pwd | Split-Path
 Write-Host "stage Dir is : $stageDir"
 $githubDir = $stageDir +"\"+"gitHub"
 Write-Host "github Dir : $githubDir"
-$destination = $githubDir+"\"+ $AzureRepoName+".git"
+#$destination = $githubDir+"\"+ $AzureRepoName+".git"
 Write-Host "destination: $destination"
 #Please make sure, you remove https from azure-repo-clone-url
 $sourceURL = "https://$($SourcePAT)"+"@"+"$($ADOCloneURL)"
@@ -25,6 +25,8 @@ write-host "source URL : $sourceURL"
 #Please make sure, you remove https from github-repo-clone-url
 $destURL = "https://" + $($DestinationPAT) +"@"+"$($GitHubCloneURL)"
 write-host "dest URL : $destURL"
+$destination = destURL
+Write-Host "destination: $destination"
 #Check if the parent directory exists and delete
 if((Test-Path -path $githubDir))
 {
@@ -57,3 +59,8 @@ if((Test-Path -path $githubDir))
  Remove-Item -Path $githubDir -Recurse -force
 }
 write-host "Job completed"
+
+
+windows-2019
+ubuntu-latest
+
